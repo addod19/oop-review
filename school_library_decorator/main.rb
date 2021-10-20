@@ -30,37 +30,36 @@ class App
         puts "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
         
         student_teacher_option = gets.chomp
+
+        if student_teacher_option != '1' && student_teacher_option != '2'
+            puts "Invalid option"
+            return
+        end
+
+        puts "Age: "
+        age = gets.chomp
+    
+        puts "Name: "
+        name = gets.chomp
+
+        person = 
     
         if student_teacher_option.to_i === 1
-            puts "Age: "
-            student_age = gets.chomp
-    
-            puts "Name: "
-            student_name = gets.chomp
-    
             puts "Has parent permission? [Y/N]: "
-            student_permission = gets.chomp
+            permission = gets.chomp
     
-            new_person = Person.new(student_age, student_name)
-            p new_person
-            
-            p "Person created successfully!!!!"
+            Student.new(age, name, permission)
         elsif student_teacher_option.to_i === 2
-            puts "Age: "
-            teacher_age = gets.chomp
-    
-            puts "Name: "
-            teacher_name = gets.chomp
-    
             puts "Specialization: "
-            teacher_specialization = gets.chomp
+            specialization = gets.chomp
     
-            new_person = Teacher.new(teacher_age, teacher_name)
-            p new_person
-            p "Person created successfully"
+            Teacher.new(age, name, specialization)
         else
             p "Oooooopsssss!!!! wrong option"
         end
+
+        @people << person
+        puts "Person created successfully"
     end
 
     def create_book
@@ -81,16 +80,20 @@ class App
 end
 
 
+app = App.new()
+
 
 puts "Please choose any option by entering a number:\n 1 - List all books \n 2 - List all people \n 3 - Create a person \n 4 - Create a book \n 5 - Create a rental \n 6 - List all rentals for a given person id \n 7 - Exit"
 option = gets.chomp
 
 if option.to_i === 1
+    app.list_books()
     p "list books"
 elsif option.to_i === 2
+    app.list_people()
     p "list all people"
 elsif option.to_i === 3
-    create_person
+    app.create_person()
 elsif option.to_i === 4
     p "create book"
 elsif option.to_i === 5
