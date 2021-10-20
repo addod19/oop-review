@@ -17,8 +17,17 @@ def list_all_people
 end
 
 def create_person
-
+    puts "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
     
+    student_teacher_option = gets.chomp
+
+    if student_teacher_option.to_i === 1
+        p "Am a student"
+    elsif student_teacher_option.to_i === 2
+        p "Am a teacher"
+    else
+        p "Oooooopsssss!!!! wrong option"
+    end
 end
 def create_book
 
@@ -44,7 +53,7 @@ if option.to_i === 1
 elsif option.to_i === 2
     p "list all people"
 elsif option.to_i === 3
-    p "create a person"
+    create_person
 elsif option.to_i === 4
     p "create book"
 elsif option.to_i === 5
