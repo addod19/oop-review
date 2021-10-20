@@ -63,7 +63,15 @@ class App
     end
 
     def create_book
+        puts "Title: "
+        title = gets.chomp
 
+        puts "Author: "
+        author = gets.chomp
+
+        @books << Book.new(title, author)
+
+        puts "Book created successfully"
     end
 
     def create_rental
@@ -88,14 +96,12 @@ option = gets.chomp
 
 if option.to_i === 1
     app.list_books()
-    p "list books"
 elsif option.to_i === 2
     app.list_people()
-    p "list all people"
 elsif option.to_i === 3
     app.create_person()
 elsif option.to_i === 4
-    p "create book"
+    app.create_book()
 elsif option.to_i === 5
     p "create rental"
 elsif option.to_i === 6
