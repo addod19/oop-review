@@ -7,43 +7,81 @@ require './rental'
 require './student'
 require './teacher'
 
+class App
+    def initialize
+        @books = []
+        @people = []
+        @rentals = []
+    end
 
-def list_all_books
+    def list_books
+        
+    end
 
-end
+    def list_people
 
-def list_all_people
+    end
 
-end
-
-def create_person
-    puts "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
+    def create_person
+        puts "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
+        
+        student_teacher_option = gets.chomp
     
-    student_teacher_option = gets.chomp
+        if student_teacher_option.to_i === 1
+            puts "Age: "
+            student_age = gets.chomp
+    
+            puts "Name: "
+            student_name = gets.chomp
+    
+            puts "Has parent permission? [Y/N]: "
+            student_permission = gets.chomp
+    
+            new_person = Person.new(student_age, student_name)
+            p new_person
+            
+            p "Person created successfully!!!!"
+        elsif student_teacher_option.to_i === 2
+            puts "Age: "
+            teacher_age = gets.chomp
+    
+            puts "Name: "
+            teacher_name = gets.chomp
+    
+            puts "Specialization: "
+            teacher_specialization = gets.chomp
+    
+            new_person = Teacher.new(teacher_age, teacher_name)
+            p new_person
+            p "Person created successfully"
+        else
+            p "Oooooopsssss!!!! wrong option"
+        end
+    end
 
-    if student_teacher_option.to_i === 1
-        p "Am a student"
-    elsif student_teacher_option.to_i === 2
-        p "Am a teacher"
-    else
-        p "Oooooopsssss!!!! wrong option"
+    def create_book
+
+    end
+
+    def create_rental
+
+    end
+
+    def list_all_rentals_for_person_id
+
+    end
+
+    def list_all_books
+
     end
 end
-def create_book
 
-end
 
-def create_rental
 
-end
 
-def list_all_rentals_for_given_person_id
 
-end
 
-def list_all_books
 
-end
 
 puts "Please choose any option by entering a number:\n 1 - List all books \n 2 - List all people \n 3 - Create a person \n 4 - Create a book \n 5 - Create a rental \n 6 - List all rentals for a given person id \n 7 - Exit"
 option = gets.chomp
