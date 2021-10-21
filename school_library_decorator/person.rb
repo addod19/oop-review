@@ -31,8 +31,3 @@ class Person
     @age >= 18
   end
 end
-
-
-per = Person.new(17, 'Moses', true)
-
-p per.age

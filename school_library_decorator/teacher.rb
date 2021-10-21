@@ -10,7 +10,3 @@ class Teacher < Person
     true
   end
 end
-
-tea = Teacher.new(39, 'Yaa', 'Scientist')
-
-p tea
