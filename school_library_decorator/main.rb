@@ -104,7 +104,8 @@ def list_all_rentals_for_person_id
     end
 end
 
-def app_exit
+def app_exit option
+    option = nil
     "Thank you for using this app"
 end
 
@@ -129,7 +130,7 @@ while option != 7
     when "6"
         list_all_rentals_for_person_id()
     when "7"
-        app_exit()
+        app_exit(option)
     end
 
     puts "\n"

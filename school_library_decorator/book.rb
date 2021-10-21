@@ -13,3 +13,7 @@ class Book
     Rental.new(date, person, self)
   end
 end
+
+b = Book.new('Lord of the rings', 'Danny')
+
+p b.title
